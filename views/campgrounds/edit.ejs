@@ -1,0 +1,35 @@
+<%- include("../partials/header")%>
+
+<div class = "container">
+	<div class="text-center jumbotron">
+		<h1>Edit <%= campground.name%></h1>
+		<div class="row">
+			<div style="width=30%; margin: 25px auto;">
+			<form class = "text-left" action="/campgrounds/<%=campground._id%>?_method=PUT" method = "POST">
+				<div class="form-group">
+					<label for="campname">CampGround Name:</label>
+					<input class="form-control" type="text" id= "campname" value="<%= campground.name%>"  name="campground[name]">	
+				</div>
+				<div class="form-group">
+					<label for="price">Price</label>
+					<input class="form-control" type="number" id= "price" value="<%= campground.price%>"  name="campground[price]" min="0.01" step="0.01">	
+				</div>
+				<div class="form-group">
+					<label for="image1">Image Url: </label>
+					<input class="form-control" id="image1" type="text" value="<%= campground.image%>" name = "campground[image]">
+				</div>
+				<div class="form-group">
+					<label for="desc">Descritpion: </label>
+					<input class="form-control" id="desc" type="text" value="<%= campground.desc%>" name="campground[description]">	
+				</div>
+				<div class="form-group text-center">
+					<button class="btn btn-lg btn-primary">Submit</button>
+				</div>
+			</form>	
+				<a href="/campgrounds">Go Back!</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer")%>

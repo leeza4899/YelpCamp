@@ -1,0 +1,20 @@
+body {
+	min-height: 75rem;
+	padding-top: 0rem;
+	margin-top:80px;
+}
+.fixed-top{
+	position: fixed;
+}
+
+.thumbnail img{
+	width:100%;
+	
+}
+.thumbnail{
+	padding: 0;
+}
+
+.delete-form {
+	display: inline;
+}
