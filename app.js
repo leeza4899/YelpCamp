@@ -21,13 +21,33 @@ var Comment    = require("./models/comments");
 var User       = require("./models/user");
 
 
-mongoose.connect("mongodb://localhost/YelpCamp")
+//mongoose.connect("mongodb://localhost/YelpCamp")
+mongoose.connect('mongodb+srv://lieyu:leeza4899@cluster0-36mf6.mongodb.net/test?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useUnifiedTopology: true
+}).then(()=>{
+	console.log("connected to db");
+}).catch(err=> {
+	console.log('ERROR:', err.message);	
+});
+
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://lieyu:<leeza4899>@cluster0-36mf6.mongodb.net/test?retryWrites=true&w=majority";
+// const connectdb = async()=>{
+// 	await mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+// 	console.log('db connected...');
+// }
+// connectdb();
+//mongodb+srv://lieyu:<leeza4899>@cluster0-36mf6.mongodb.net/test?retryWrites=true&w=majority
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(cookieParser('secret'));
 //seedDB(); // seed the db;
+
 
 
 // campground.create({

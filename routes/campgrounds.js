@@ -102,12 +102,6 @@ router.put("/campgrounds/:id", middleware.checkCampgroundOwnership, function(req
 
 router.delete("/campgrounds/:id", middleware.checkCampgroundOwnership, function(req,res){
 	campground.findByIdAndRemove(req.params.id, function(err){
-		// Added this block, to check if foundCampground exists, and if it doesn't to throw an error via connect-flash and send us back to the homepage
-            if (!foundCampground) {
-                    req.flash("error", "Item not found.");
-                    return res.redirect("back");
-                }
-            // If the upper condition is true this will break out of the middleware and prevent the code below to crash our application
 		if(err){
 			res.redirect("/campgrounds");
 		} else {
