@@ -31,6 +31,7 @@ mongoose.connect('mongodb+srv://lieyu:leeza4899@cluster0-36mf6.mongodb.net/test?
 }).catch(err=> {
 	console.log('ERROR:', err.message);	
 });
+console.log(process.env.DATABASEURL)
 
 
 // const MongoClient = require('mongodb').MongoClient;
@@ -98,7 +99,7 @@ app.use(commentRoutes);
 app.use(indexRoutes);
 
 
-const PORT = 3000
+
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("The YelpCamp server has begun!");
 });
