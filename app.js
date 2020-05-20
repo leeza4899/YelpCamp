@@ -31,7 +31,6 @@ mongoose.connect('mongodb+srv://lieyu:leeza4899@cluster0-36mf6.mongodb.net/test?
 }).catch(err=> {
 	console.log('ERROR:', err.message);	
 });
-console.log(process.env.DATABASEURL)
 
 
 // const MongoClient = require('mongodb').MongoClient;
