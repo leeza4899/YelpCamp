@@ -1,0 +1,32 @@
+<%- include("../partials/header")%>
+<div class ="container" style = "background-color: #f1f1f1;">
+	<h1><%= user.username %>'s User Profile!</h1>
+<div class = "row">
+	<div class = "col-md-6">
+		<div class="card">
+			 <img src="<%= user.avatar %>" alt="user profile image" class="card-img">
+			  <div class="card-body">
+				  <h3 class="card-title"><strong><%= user.firstName + " " + user.lastName %></strong></h3>
+				<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quasi similique architecto ad modi sunt quaerat possimus, officiis quos. Voluptatibus repellendus exercitationem, id saepe sunt consectetur non quam sapiente assumenda.<br>
+
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quasi similique architecto ad modi sunt quaerat possimus, officiis quos. Voluptatibus repellendus exercitationem, id saepe sunt consectetur non quam sapiente assumenda.</p>
+			</div>
+			<div class="card-body">
+				Email: <a href="mailto:<%= user.email %>"><%= user.email %></a>
+  			</div>
+		</div>
+		</div>
+	<div class = "col-md-6">
+		<h3 class = "card-title"><strong><%= user.username %>'s Campgrounds:</strong></h3>
+  <ul class="list-group list-group-flush">
+    <% campgrounds.forEach(function(campground) { %>
+			<li class = "list-group-item"><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
+		<% }); %>
+  </ul>
+	</div>		
+	</div>
+</div>
+
+
+
+<%- include("../partials/footer")%>
